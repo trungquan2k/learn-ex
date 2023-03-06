@@ -3,8 +3,10 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
+  awesome_notifications
   connectivity_plus
   platform_device_id_windows
+  sentry_flutter
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST

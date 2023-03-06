@@ -1,10 +1,23 @@
+import 'dart:async';
+
+import 'package:awesome_notifications/awesome_notifications.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
-import 'dart:ui';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/services.dart';
+import 'package:myapp/config/application.dart';
+import 'package:myapp/constants/colors.dart';
 import 'package:myapp/feature/authentication/login/login_page.dart';
+import 'package:myapp/localizations/app_localizations.dart';
+import 'package:myapp/model/main_app_model.dart';
+import 'package:myapp/routing/app_route_parser.dart';
+import 'package:myapp/routing/app_router.dart';
+import 'package:myapp/shared/mixins/spref.dart';
+import 'package:myapp/themes.dart';
 import 'package:myapp/utils.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:myapp/learnex-app/login-screen.dart';
+import 'package:provider/provider.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 // import 'package:myapp/learnex-app/register-screen.dart';
 // import 'package:myapp/learnex-app/flash-screen.dart';
 // import 'package:myapp/learnex-app/postquestion-screen.dart';
@@ -53,7 +66,67 @@ import 'package:myapp/learnex-app/login-screen.dart';
 // import 'package:myapp/learnex-web/group-10.dart';
 // import 'package:myapp/learnex-web/group-11.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle());
+
+  Application application = Application();
+  await application.setup();
+  await AwesomeNotifications().initialize(
+      // set the icon to null if you want to use the default app icon
+      'resource://drawable/logo',
+      [
+        NotificationChannel(
+          channelShowBadge: true,
+          importance: NotificationImportance.High,
+          channelGroupKey: 'basic_channel_group',
+          channelKey: 'basic_channel',
+          channelName: 'Basic notifications',
+          channelDescription: 'Notification channel for basic tests',
+          defaultColor: AppColors.primaryColor,
+          ledColor: Colors.white,
+        )
+      ],
+      // Channel groups are only visual and are not required
+      channelGroups: [
+        NotificationChannelGroup(
+            channelGroupKey: 'basic_channel_group',
+            channelGroupName: 'Basic group')
+      ],
+      debug: true);
+  MainAppState mainAppState =
+      MainAppState(userRepository: application.userRepository);
+  await SPref.init();
+  // await Firebase.initializeApp();
+  // await Firebase.initializeApp(
+  //   name: "Green Agri Merchant",
+  //   options: FirebaseOptions(
+  //       apiKey: 'AIzaSyAvNz_C0CivDPfyoFxY1xPn-O8DvOdVUoQ',
+  //       appId: '1:455136528252:ios:4113ab16106f326a9cc6f9',
+  //       messagingSenderId: '455136528252',
+  //       projectId: 'green-agri-8c2b2'),
+  // );
+
+  await SentryFlutter.init(
+    (options) {
+      options.dsn = 'https://example@sentry.io/add-your-dsn-here';
+    },
+    appRunner: () => runApp(
+      MultiProvider(
+        providers: [
+          // Provider.value(value: application.userRepository),
+          // Provider.value(value: application.reportRepository),
+          // Provider.value(value: application.authRepository),
+          // Provider.value(value: application.categoryRepository),
+          // Provider.value(value: application.orderRepository),
+          ChangeNotifierProvider.value(value: mainAppState),
+        ],
+        child: _AppBootstrapper(),
+      ),
+    ),
+  );
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -70,6 +143,45 @@ class MyApp extends StatelessWidget {
           child: LoginPage(),
         ),
       ),
+    );
+  }
+}
+
+class _AppBootstrapper extends StatefulWidget {
+  @override
+  _AppBootstrapperState createState() => _AppBootstrapperState();
+}
+
+class _AppBootstrapperState extends State<_AppBootstrapper> {
+  AppRouteParser routeParser = AppRouteParser();
+  late AppRouterDelegate router;
+
+  @override
+  void initState() {
+    router = AppRouterDelegate(context.read<MainAppState>());
+
+    scheduleMicrotask(() {
+      // BootstrapCommand().run(context);
+    });
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    AppTheme theme = context.select((MainAppState m) => m.theme);
+    return MaterialApp.router(
+      routeInformationParser: routeParser,
+      routerDelegate: router,
+      debugShowCheckedModeBanner: false,
+      theme: theme.themeData,
+      supportedLocales: [
+        Locale('en', 'US'),
+      ],
+      localizationsDelegates: [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
     );
   }
 }
