@@ -1,26 +1,18 @@
-// import 'dart:convert';
-// import 'package:myapp/constants/app_key.dart';
-// import 'package:myapp/data/local_storage/simple_storage/spref.dart';
-// import 'package:myapp/data/models/user/member_model.dart';
-// import 'package:myapp/data/repositories/user_repo.dart';
-// import 'package:myapp/models/global_cache_model.dart/global_cache_model.dart';
-// import 'package:myapp/models/global_feature_model/global_feature_model.dart';
-// import 'package:myapp/routing/page_configurations/auth_page_configuration.dart';
-// import 'package:myapp/routing/page_configurations/dash_board_configuration.dart';
-// import 'package:myapp/routing/page_configuration.dart';
-// import 'package:myapp/shared/utils/debouncer.dart';
-// import 'package:myapp/shared/utils/easy_notifier.dart';
-// import 'package:myapp/shared/utils/safe_print.dart';
-// import 'package:myapp/shared/utils/universal_file/universal_file.dart';
-// import 'package:flutter/material.dart';
-// import 'package:universal_platform/universal_platform.dart';
-
-// import '../themes.dart';
+import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:myapp/constants/app_key.dart';
+import 'package:myapp/data/model/auth_model/user_model.dart';
+import 'package:myapp/data/repositories/user_repo.dart';
+import 'package:myapp/routing/page_configuration/authen_page_configuration.dart';
+import 'package:myapp/routing/page_configuration/dashboard_page_configuration.dart';
+import 'package:myapp/shared/mixins/spref.dart';
 import 'package:myapp/shared/utils/easy_notifier.dart';
+import 'package:myapp/shared/utils/safe_print.dart';
+import 'package:myapp/shared/utils/universal_file/universal_file.dart';
 import 'package:myapp/themes.dart';
 import 'package:universal_platform/universal_platform.dart';
+import 'package:myapp/routing/page_configuration.dart';
 
 abstract class AbstractModel extends EasyNotifier {}
 
@@ -34,46 +26,44 @@ class MainAppState extends AbstractModel {
 
   static AppTheme get _defaultTheme =>
       AppTheme.fromType(ThemeType.Orange_Light);
-  // static PageConfiguration _defaultPage = DashBoardPageConfiguration();
+  static PageConfiguration _defaultPage = DashBoardPageConfiguration();
 
-  // // UserRepository userRepository;
+  UserRepository userRepository;
 
-  // // MainAppState({required this.userRepository});
+  MainAppState({required this.userRepository});
 
-  // // PageConfiguration _currentPage = _defaultPage;
+  PageConfiguration _currentPage = _defaultPage;
 
-  // // PageConfiguration get currentPage => _currentPage;
+  PageConfiguration get currentPage => _currentPage;
 
-  // // Debouncer _saveDebouncer = Debouncer(Duration(seconds: 1));
+  set currentPage(PageConfiguration value) {
+    if (currentPage.key == value.key) return;
+    notify(() => _currentPage = value);
+  }
 
-  // // set currentPage(PageConfiguration value) {
-  // //   if (currentPage.key == value.key) return;
-  // //   notify(() => _currentPage = value);
-  // // }
+  UserModel? _currentUser;
 
-  // // MemberModel? _currentUser;
+  UserModel? get currentUser => _currentUser;
 
-  // // MemberModel? get currentUser => _currentUser;
+  set currentUser(UserModel? currentUser) {
+    _currentUser = currentUser;
+    if (_currentUser == null) {
+      reset();
+    }
+    notify();
+  }
 
-  // // set currentUser(MemberModel? currentUser) {
-  // //   _currentUser = currentUser;
-  // //   if (_currentUser == null) {
-  // //     reset();
-  // //   }
-  // //   notify();
-  // // }
+  // GlobalFeatureModel? _globalFeatureModel;
 
-  // // GlobalFeatureModel? _globalFeatureModel;
+  // GlobalFeatureModel? get globalFeatureModel => _globalFeatureModel;
 
-  // // GlobalFeatureModel? get globalFeatureModel => _globalFeatureModel;
-
-  // // set globalFeatureModel(GlobalFeatureModel? globalFeatureModel) {
-  // //   _globalFeatureModel = globalFeatureModel;
-  // //   if (_globalFeatureModel == null) {
-  // //     reset();
-  // //   }
-  // //   notify();
-  // // }
+  // set globalFeatureModel(GlobalFeatureModel? globalFeatureModel) {
+  //   _globalFeatureModel = globalFeatureModel;
+  //   if (_globalFeatureModel == null) {
+  //     reset();
+  //   }
+  //   notify();
+  // }
 
   // // GlobalVoucher? _globalVoucher;
 
@@ -87,35 +77,35 @@ class MainAppState extends AbstractModel {
   // //   notify();
   // // }
 
-  // // /// Touch Mode (show btns instead of using right-click, use larger paddings)
-  // // bool _enableTouchMode = _defaultTouchMode;
+  /// Touch Mode (show btns instead of using right-click, use larger paddings)
+  bool _enableTouchMode = _defaultTouchMode;
 
-  // // bool get enableTouchMode => _enableTouchMode;
+  bool get enableTouchMode => _enableTouchMode;
 
-  // // set enableTouchMode(bool value) {
-  // //   if (value == _enableTouchMode) return;
-  // //   notify(() => _enableTouchMode = value);
-  // // }
+  set enableTouchMode(bool value) {
+    if (value == _enableTouchMode) return;
+    notify(() => _enableTouchMode = value);
+  }
 
-  // // void reset() {
-  // //   // _currentUser = null;
-  // //   // userRepository.logout();
-  // //   _currentPage = AuthPageConfiguration();
-  // // }
+  void reset() {
+    // _currentUser = null;
+    // userRepository.logout();
+    _currentPage = LoginPageConfiguration();
+  }
 
-  // // /// Startup
-  // // bool _hasBootstrapped = false;
+  /// Startup
+  bool _hasBootstrapped = false;
 
-  // // bool get hasBootstrapped => _hasBootstrapped;
+  bool get hasBootstrapped => _hasBootstrapped;
 
-  // // set hasBootstrapped(bool value) => notify(() => _hasBootstrapped = value);
+  set hasBootstrapped(bool value) => notify(() => _hasBootstrapped = value);
 
-  // // bool _hasSetInitialRoute = false;
+  bool _hasSetInitialRoute = false;
 
-  // // bool get hasSetInitialRoute => _hasSetInitialRoute;
+  bool get hasSetInitialRoute => _hasSetInitialRoute;
 
-  // // set hasSetInitialRoute(bool value) =>
-  // //     notify(() => _hasSetInitialRoute = value);
+  set hasSetInitialRoute(bool value) =>
+      notify(() => _hasSetInitialRoute = value);
 
   /// Settings
   // Current Theme
@@ -133,71 +123,69 @@ class MainAppState extends AbstractModel {
   set textDirection(TextDirection value) =>
       notify(() => _textDirection = value);
 
-  // // // Window Position
-  // // Rect _windowRect = Rect.zero;
+  // Window Position
+  Rect _windowRect = Rect.zero;
 
-  // // Rect get windowRect => _windowRect;
+  Rect get windowRect => _windowRect;
 
-  // // set windowRect(Rect value) {
-  // //   safePrint("Set windowRect $value");
-  // //   notify(() => _windowRect = value);
-  // // }
+  set windowRect(Rect value) {
+    print("Set windowRect $value");
+    notify(() => _windowRect = value);
+  }
 
-  // // bool get hasValidWindowRect {
-  // //   return !windowRect.isEmpty &&
-  // //       windowRect.size.width > 0 &&
-  // //       windowRect.size.height > 0 &&
-  // //       windowRect.left > 0 &&
-  // //       windowRect.right > 0;
-  // // }
+  bool get hasValidWindowRect {
+    return !windowRect.isEmpty &&
+        windowRect.size.width > 0 &&
+        windowRect.size.height > 0 &&
+        windowRect.left > 0 &&
+        windowRect.right > 0;
+  }
 
-  // // void scheduleSave() => _saveDebouncer.call(save);
+  void save() {
+    print("Saving: $kFileName");
+    String saveJson = jsonEncode(toJson());
+    UniversalFile(kFileName).write(saveJson);
+  }
 
-  // // void save() {
-  // //   print("Saving: $kFileName");
-  // //   String saveJson = jsonEncode(toJson());
-  // //   UniversalFile(kFileName).write(saveJson);
-  // // }
+  load() async {
+    SPref.instance.set(AppKey.idToken,
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiTUVNQkVSIiwiX2lkIjoiNjI4YzQzMzliYmYwZDUwMDFkNDgxMGY5IiwidXNlcm5hbWUiOiJnYXN0aGllbmhhQGdtYWlsLmNvbSIsImNyZWF0ZWRBdCI6IjIwMjItMDctMjBUMDc6NDY6NTAuMTQ5WiIsImlhdCI6MTY1ODMwMzIxMCwiZXhwIjoxNjYwODk1MjEwfQ.arYy15J0UyAXodkZ-iRsf3vgScgxtkK24x_iBY9qhgU");
+    userRepository.memberGetMe();
+    userRepository.getIsCurrentUser();
+    _currentUser = userRepository.currentUser;
+    _currentPage = userRepository.isCurrentUser
+        ? DashBoardPageConfiguration()
+        : LoginPageConfiguration();
 
-  // // load() async {
-  // //   SPref.instance.set(AppKey.idToken,
-  // //       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiTUVNQkVSIiwiX2lkIjoiNjI4YzQzMzliYmYwZDUwMDFkNDgxMGY5IiwidXNlcm5hbWUiOiJnYXN0aGllbmhhQGdtYWlsLmNvbSIsImNyZWF0ZWRBdCI6IjIwMjItMDctMjBUMDc6NDY6NTAuMTQ5WiIsImlhdCI6MTY1ODMwMzIxMCwiZXhwIjoxNjYwODk1MjEwfQ.arYy15J0UyAXodkZ-iRsf3vgScgxtkK24x_iBY9qhgU");
-  // //   userRepository.memberGetMe();
-  // //   userRepository.getIsCurrentUser();
-  // //   _currentUser = userRepository.currentUser;
-  // //   _currentPage = userRepository.isCurrentUser
-  // //       ? DashBoardPageConfiguration()
-  // //       : AuthPageConfiguration();
+    String saveJson = await UniversalFile(MainAppState.kFileName).read();
+    try {
+      fromJson(jsonDecode(saveJson) as Map<String, dynamic>);
+    } catch (e) {
+      safePrint("Failed to load save file");
+    }
+    print("File loaded, $windowRect");
+  }
 
-  // //   String saveJson = await UniversalFile(MainAppState.kFileName).read();
-  // //   try {
-  // //     fromJson(jsonDecode(saveJson) as Map<String, dynamic>);
-  // //   } catch (e) {
-  // //     safePrint("Failed to load save file");
-  // //   }
-  // //   print("File loaded, $windowRect");
-  // // }
+  void fromJson(Map<String, dynamic> json) {
+    if (json["enableTouchMode"] != null) {
+      _enableTouchMode = json["enableTouchMode"] as bool;
+    }
+    _windowRect = Rect.fromLTWH(
+      json["winX"] as double? ?? 0.0,
+      json["winY"] as double? ?? 0.0,
+      json["winWidth"] as double? ?? 0.0,
+      json["winHeight"] as double? ?? 0.0,
+    );
+    //print(json);
+  }
 
-  // void fromJson(Map<String, dynamic> json) {
-  //   if (json["enableTouchMode"] != null) {
-  //     _enableTouchMode = json["enableTouchMode"] as bool;
-  //   }
-  //   _windowRect = Rect.fromLTWH(
-  //     json["winX"] as double? ?? 0.0,
-  //     json["winY"] as double? ?? 0.0,
-  //     json["winWidth"] as double? ?? 0.0,
-  //     json["winHeight"] as double? ?? 0.0,
-  //   );
-  //   //print(json);
-  // }
-
-  // Map<String, dynamic> toJson() {
-  //   return <String, dynamic>{
-  //     "winX": _windowRect.left,
-  //     "winY": _windowRect.top,
-  //     "winWidth": _windowRect.width,
-  //     "winHeight": _windowRect.height,
-  //     "enableTouchMode": enableTouchMode,
-  //   };
-  // }
+  Map<String, dynamic> toJson() {
+    return <String, dynamic>{
+      "winX": _windowRect.left,
+      "winY": _windowRect.top,
+      "winWidth": _windowRect.width,
+      "winHeight": _windowRect.height,
+      "enableTouchMode": enableTouchMode,
+    };
+  }
 }
