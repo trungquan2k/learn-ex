@@ -1,0 +1,525 @@
+name: myapp
+description: A exported flutter project from FUNCTION12
+
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.2 <3.0.0'
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.2
+  google_fonts: ^3.0.1
+  platform_device_id: ^1.0.1
+  shared_preferences: ^2.0.18
+  currency_text_input_formatter: ^2.1.9
+  flutter_spinkit: ^5.1.0
+  cached_network_image: ^3.2.3
+  statsfl: ^2.3.0
+  sized_context: ^1.0.0+1
+  provider: ^6.0.5
+  darq: ^1.2.1
+  connectivity_plus: ^3.0.3
+  universal_platform: ^1.0.0+1
+  fluttertoast: ^8.2.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  flutter_lints: ^2.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  # assets:
+  #   - images/a_dot_burr.jpeg
+  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/learnex-app/images/logo.png
+    - assets/learnex-app/images/logo-oJg.png
+    - assets/learnex-app/images/toan-1.png
+    - assets/learnex-app/images/logo-sMS.png
+    - assets/learnex-app/images/toan-1-fMA.png
+    - assets/learnex-app/images/avatar-40-bg.png
+    - assets/learnex-app/images/facebook-logo.png
+    - assets/learnex-app/images/trailing-icon-PRA.png
+    - assets/learnex-app/images/ic-bell.png
+    - assets/learnex-app/images/vector.png
+    - assets/learnex-app/images/vector-q6x.png
+    - assets/learnex-app/images/vector-qSG.png
+    - assets/learnex-app/images/trailing-icon.png
+    - assets/learnex-app/images/mobile-signal.png
+    - assets/learnex-app/images/iccomment.png
+    - assets/learnex-app/images/avatar-40-bg-PYU.png
+    - assets/learnex-app/images/wifi.png
+    - assets/learnex-app/images/vector-PSY.png
+    - assets/learnex-app/images/filter.png
+    - assets/learnex-app/images/add.png
+    - assets/learnex-app/images/wifi-w9r.png
+    - assets/learnex-app/images/wifi-RDS.png
+    - assets/learnex-app/images/icheart.png
+    - assets/learnex-app/images/icsubmit.png
+    - assets/learnex-app/images/battery.png
+    - assets/learnex-app/images/icheart-qzQ.png
+    - assets/learnex-app/images/vector-a1W.png
+    - assets/learnex-app/images/battery-uPv.png
+    - assets/learnex-app/images/starborder.png
+    - assets/learnex-app/images/battery-FGL.png
+    - assets/learnex-app/images/google-logo.png
+    - assets/learnex-app/images/toan-1-ttY.png
+    - assets/learnex-app/images/left-icon.png
+    - assets/learnex-app/images/wifi-FQU.png
+    - assets/learnex-app/images/frame-35477.png
+    - assets/learnex-app/images/icquestion.png
+    - assets/learnex-app/images/toan-1-Mj6.png
+    - assets/learnex-app/images/avatar-40-bg-hFn.png
+    - assets/learnex-app/images/vector-pB2.png
+    - assets/learnex-app/images/vector-8oJ.png
+    - assets/learnex-app/images/icquestion-qH2.png
+    - assets/learnex-app/images/vector-2Bi.png
+    - assets/learnex-app/images/trailing-icon-EAc.png
+    - assets/learnex-app/images/mobile-signal-rUg.png
+    - assets/learnex-app/images/mobile-signal-t7A.png
+    - assets/learnex-app/images/frame-35110.png
+    - assets/learnex-app/images/vector-knt.png
+    - assets/learnex-app/images/vector-Wn4.png
+    - assets/learnex-app/images/vector-5aG.png
+    - assets/learnex-app/images/rectangle.png
+    - assets/learnex-app/images/vector-DgU.png
+    - assets/learnex-app/images/key-light.png
+    - assets/learnex-app/images/vector-ZVS.png
+    - assets/learnex-app/images/vector-rWU.png
+    - assets/learnex-app/images/vector-oRi.png
+    - assets/learnex-app/images/rectangle-69v.png
+    - assets/learnex-app/images/icheart-qtC.png
+    - assets/learnex-app/images/mobile-signal-PPv.png
+    - assets/learnex-app/images/emoji.png
+    - assets/learnex-app/images/vector-VC4.png
+    - assets/learnex-app/images/wifi-Fh2.png
+    - assets/learnex-app/images/vector-kdn.png
+    - assets/learnex-app/images/icquestion-iac.png
+    - assets/learnex-app/images/left-icon-H7v.png
+    - assets/learnex-app/images/wifi-rB2.png
+    - assets/learnex-app/images/toan-1-8or.png
+    - assets/learnex-app/images/iccomment-KNY.png
+    - assets/learnex-app/images/key-light-kJk.png
+    - assets/learnex-app/images/vector-s7e.png
+    - assets/learnex-app/images/icheart-3tc.png
+    - assets/learnex-app/images/toan-1-pjJ.png
+    - assets/learnex-app/images/avatar-40-bg-cBr.png
+    - assets/learnex-app/images/wifi-mXv.png
+    - assets/learnex-app/images/rectangle-zB2.png
+    - assets/learnex-app/images/left-icon-rQg.png
+    - assets/learnex-app/images/vector-tgg.png
+    - assets/learnex-app/images/avatar-40-bg-gXz.png
+    - assets/learnex-app/images/avatar-40-bg-qfn.png
+    - assets/learnex-app/images/vector-84Q.png
+    - assets/learnex-app/images/ellipse-802.png
+    - assets/learnex-app/images/avatar-40-bg-13W.png
+    - assets/learnex-app/images/battery-hFW.png
+    - assets/learnex-app/images/battery-424.png
+    - assets/learnex-app/images/frame-35477-L3J.png
+    - assets/learnex-app/images/avatar-40-bg-HdJ.png
+    - assets/learnex-app/images/vector-2cp.png
+    - assets/learnex-app/images/avatar-40-bg-WiL.png
+    - assets/learnex-app/images/dictation.png
+    - assets/learnex-app/images/vector-LBJ.png
+    - assets/learnex-app/images/mobile-signal-XZ2.png
+    - assets/learnex-app/images/frame-35477-Aac.png
+    - assets/learnex-app/images/vector-tGx.png
+    - assets/learnex-app/images/vector-jmz.png
+    - assets/learnex-app/images/battery-Db6.png
+    - assets/learnex-app/images/vector-Lyn.png
+    - assets/learnex-app/images/vector-3ag.png
+    - assets/learnex-app/images/settings.png
+    - assets/learnex-app/images/vector-bZz.png
+    - assets/learnex-app/images/vector-38U.png
+    - assets/learnex-app/images/vector-Uja.png
+    - assets/learnex-app/images/vector-ntg.png
+    - assets/learnex-app/images/vector-zWt.png
+    - assets/learnex-app/images/vector-bBE.png
+    - assets/learnex-app/images/vector-Q96.png
+    - assets/learnex-app/images/mobile-signal-DEx.png
+    - assets/learnex-app/images/vector-Md2.png
+    - assets/learnex-app/images/vector-TEQ.png
+    - assets/learnex-app/images/icquestion-iJ4.png
+    - assets/learnex-app/images/phoneandroid.png
+    - assets/learnex-app/images/mobile-signal-kkY.png
+    - assets/learnex-app/images/vector-voS.png
+    - assets/learnex-app/images/left-icon-FmA.png
+    - assets/learnex-app/images/vector-R9r.png
+    - assets/learnex-app/images/icquestion-7YU.png
+    - assets/learnex-app/images/rectangle-3183.png
+    - assets/learnex-app/images/icquestion-7ya.png
+    - assets/learnex-app/images/vector-VHJ.png
+    - assets/learnex-app/images/phoneandroid-Bvp.png
+    - assets/learnex-app/images/rectangle-3183-34U.png
+    - assets/learnex-app/images/vector-AcG.png
+    - assets/learnex-app/images/vector-vbS.png
+    - assets/learnex-app/images/vector-Hwn.png
+    - assets/learnex-app/images/settings-hNY.png
+    - assets/learnex-app/images/vector-TEY.png
+    - assets/learnex-app/images/vector-pKz.png
+    - assets/learnex-app/images/icquestion-Usi.png
+    - assets/learnex-app/images/vector-aBz.png
+    - assets/learnex-app/images/share.png
+    - assets/learnex-app/images/vector-jDi.png
+    - assets/learnex-app/images/vector-AK2.png
+    - assets/learnex-app/images/battery-NgY.png
+    - assets/learnex-app/images/vector-XpL.png
+    - assets/learnex-app/images/avatar-40-bg-eQQ.png
+    - assets/learnex-app/images/wifi-ZBv.png
+    - assets/learnex-app/images/mobile-signal-RxC.png
+    - assets/learnex-app/images/frame-35477-zEc.png
+    - assets/learnex-app/images/vector-32Y.png
+    - assets/learnex-app/images/vector-ywn.png
+    - assets/learnex-app/images/vector-Cba.png
+    - assets/learnex-app/images/vector-14C.png
+    - assets/learnex-app/images/frame-35477-3ma.png
+    - assets/learnex-app/images/vector-mSg.png
+    - assets/learnex-app/images/frame-35477-7mS.png
+    - assets/learnex-app/images/wifi-mLC.png
+    - assets/learnex-app/images/mobile-signal-8Ak.png
+    - assets/learnex-app/images/left-icon-aYY.png
+    - assets/learnex-app/images/vector-YEU.png
+    - assets/learnex-app/images/left-icon-u52.png
+    - assets/learnex-app/images/vector-ow6.png
+    - assets/learnex-app/images/vector-yqa.png
+    - assets/learnex-app/images/wifi-RDi.png
+    - assets/learnex-app/images/vector-nKA.png
+    - assets/learnex-app/images/battery-2jJ.png
+    - assets/learnex-app/images/mobile-signal-PWY.png
+    - assets/learnex-app/images/share-FYU.png
+    - assets/learnex-app/images/vector-sjW.png
+    - assets/learnex-app/images/vector-qAY.png
+    - assets/learnex-app/images/vector-rrC.png
+    - assets/learnex-app/images/ellipse-802-oKN.png
+    - assets/learnex-app/images/vector-8gQ.png
+    - assets/learnex-app/images/avatar-40-bg-896.png
+    - assets/learnex-app/images/vector-aAC.png
+    - assets/learnex-app/images/battery-3V2.png
+    - assets/learnex-app/images/avatar-40-bg-Qet.png
+    - assets/learnex-app/images/battery-1uz.png
+    - assets/learnex-app/images/rectangle-woW.png
+    - assets/learnex-app/images/key-light-irC.png
+    - assets/learnex-app/images/battery-QD6.png
+    - assets/learnex-app/images/avatar-40-bg-w3n.png
+    - assets/learnex-app/images/emoji-mpt.png
+    - assets/learnex-app/images/wifi-oh2.png
+    - assets/learnex-app/images/emoji-nLg.png
+    - assets/learnex-app/images/battery-fYt.png
+    - assets/learnex-app/images/mobile-signal-M8C.png
+    - assets/learnex-app/images/pricevector.png
+    - assets/learnex-app/images/dictation-Que.png
+    - assets/learnex-app/images/rectangle-GqN.png
+    - assets/learnex-app/images/rectangle-zgg.png
+    - assets/learnex-app/images/left-icon-a4Y.png
+    - assets/learnex-app/images/avatar-40-bg-Hg4.png
+    - assets/learnex-app/images/logo-nVe.png
+    - assets/learnex-app/images/rectangle-t64.png
+    - assets/learnex-app/images/avatar-40-bg-iR6.png
+    - assets/learnex-app/images/key-light-VP6.png
+    - assets/learnex-app/images/image-1.png
+    - assets/learnex-app/images/wifi-doN.png
+    - assets/learnex-app/images/image-1-C2U.png
+    - assets/learnex-app/images/avatar-40-bg-VpC.png
+    - assets/learnex-app/images/anhchitiet.png
+    - assets/learnex-app/images/image-1-Fhz.png
+    - assets/learnex-app/images/avatar-40-bg-Bdz.png
+    - assets/learnex-app/images/key-light-nLg.png
+    - assets/learnex-app/images/small-carousel-card-bg.png
+    - assets/learnex-app/images/image-1-1eQ.png
+    - assets/learnex-app/images/avatar-40-bg-g8p.png
+    - assets/learnex-app/images/vector-vCG.png
+    - assets/learnex-app/images/sch-tham-khao-4.png
+    - assets/learnex-app/images/wifi-oz8.png
+    - assets/learnex-app/images/small-carousel-card-bg-Dg4.png
+    - assets/learnex-app/images/icquestion-BUt.png
+    - assets/learnex-app/images/mobile-signal-X2x.png
+    - assets/learnex-app/images/frame-35477-gAk.png
+    - assets/learnex-app/images/vector-Exx.png
+    - assets/learnex-app/images/mobile-signal-cyW.png
+    - assets/learnex-app/images/icquestion-z4x.png
+    - assets/learnex-app/images/rectangle-k48.png
+    - assets/learnex-app/images/icquestion-JLY.png
+    - assets/learnex-app/images/left-icon-GHN.png
+    - assets/learnex-app/images/vector-rFJ.png
+    - assets/learnex-app/images/vector-kba.png
+    - assets/learnex-app/images/wifi-W4x.png
+    - assets/learnex-app/images/battery-FoE.png
+    - assets/learnex-app/images/vector-Aak.png
+    - assets/learnex-app/images/polygon-1.png
+    - assets/learnex-app/images/vector-ryN.png
+    - assets/learnex-app/images/ellipse-805.png
+    - assets/learnex-app/images/rectangle-3118.png
+    - assets/learnex-app/images/dictation-k3A.png
+    - assets/learnex-app/images/battery-t2t.png
+    - assets/learnex-app/images/vector-1dJ.png
+    - assets/learnex-app/images/vector-jQC.png
+    - assets/learnex-app/images/wifi-jHi.png
+    - assets/learnex-app/images/key-light-RRS.png
+    - assets/learnex-app/images/vector-zmv.png
+    - assets/learnex-app/images/ellipse-805-jUc.png
+    - assets/learnex-app/images/wifi-gAt.png
+    - assets/learnex-app/images/pricevector-cKS.png
+    - assets/learnex-app/images/vector-ALx.png
+    - assets/learnex-app/images/ellipse-805-Wvc.png
+    - assets/learnex-app/images/battery-5D2.png
+    - assets/learnex-app/images/small-carousel-card-bg-oui.png
+    - assets/learnex-app/images/authorvector.png
+    - assets/learnex-app/images/sch-tham-khao-4-d3N.png
+    - assets/learnex-app/images/wifi-zZv.png
+    - assets/learnex-app/images/frame-35477-ztg.png
+    - assets/learnex-app/images/authorvector-Uqn.png
+    - assets/learnex-app/images/sch-dsgt.png
+    - assets/learnex-app/images/rectangle-3115.png
+    - assets/learnex-app/images/ellipse-803-bg.png
+    - assets/learnex-app/images/authorvector-mK6.png
+    - assets/learnex-app/images/rectangle-Y4x.png
+    - assets/learnex-app/images/sch-bi-mu.png
+    - assets/learnex-app/images/frame-35477-5Kn.png
+    - assets/learnex-app/images/pricevector-3XW.png
+    - assets/learnex-app/images/icquestion-p2U.png
+    - assets/learnex-app/images/battery-yvx.png
+    - assets/learnex-app/images/pricevector-MYC.png
+    - assets/learnex-app/images/mobile-signal-XBn.png
+    - assets/learnex-app/images/pricevector-VeQ.png
+    - assets/learnex-app/images/authorvector-4xQ.png
+    - assets/learnex-app/images/pricevector-eGQ.png
+    - assets/learnex-app/images/rectangle-3118-1Mr.png
+    - assets/learnex-app/images/frame-35477-aQx.png
+    - assets/learnex-app/images/small-carousel-card-bg-wWQ.png
+    - assets/learnex-app/images/authorvector-7Qt.png
+    - assets/learnex-app/images/pricevector-V28.png
+    - assets/learnex-app/images/vector-fBW.png
+    - assets/learnex-app/images/wifi-2Qx.png
+    - assets/learnex-app/images/mobile-signal-PdJ.png
+    - assets/learnex-app/images/vector-APA.png
+    - assets/learnex-app/images/mobile-signal-8qn.png
+    - assets/learnex-app/images/authorvector-ube.png
+    - assets/learnex-app/images/group-35179.png
+    - assets/learnex-app/images/left-icon-f52.png
+    - assets/learnex-app/images/ellipse-805-DsE.png
+    - assets/learnex-app/images/rectangle-3123.png
+    - assets/learnex-app/images/authorvector-yLc.png
+    - assets/learnex-app/images/authorvector-k6U.png
+    - assets/learnex-app/images/rectangle-3137.png
+    - assets/learnex-app/images/rectangle-3137-sDz.png
+    - assets/learnex-app/images/rectangle-3126.png
+    - assets/learnex-app/images/rectangle-3104.png
+    - assets/learnex-app/images/ellipse-804.png
+    - assets/learnex-app/images/pricevector-8m6.png
+    - assets/learnex-app/images/rectangle-3115-RiY.png
+    - assets/learnex-app/images/sch-bi-mu-pqN.png
+    - assets/learnex-app/images/ellipse-803-bg-e8Y.png
+    - assets/learnex-app/images/mobile-signal-wN8.png
+    - assets/learnex-app/images/sch-dsgt-qNx.png
+    - assets/learnex-app/images/vector-ULg.png
+    - assets/learnex-app/images/rectangle-3104-46t.png
+    - assets/learnex-app/images/vector-MNQ.png
+    - assets/learnex-app/images/vector-RdA.png
+    - assets/learnex-app/images/battery-PK6.png
+    - assets/learnex-app/images/rectangle-3137-EKi.png
+    - assets/learnex-app/images/mobile-signal-Z9a.png
+    - assets/learnex-app/images/rectangle-3137-op4.png
+    - assets/learnex-app/images/icquestion-ogC.png
+    - assets/learnex-app/images/rectangle-3135.png
+    - assets/learnex-app/images/ellipse-803-bg-yxk.png
+    - assets/learnex-app/images/ellipse-803-bg-gFJ.png
+    - assets/learnex-app/images/rectangle-3135-UVn.png
+    - assets/learnex-app/images/left-icon-viC.png
+    - assets/learnex-app/images/rectangle-3135-7Va.png
+    - assets/learnex-app/images/rectangle-3135-f2x.png
+    - assets/learnex-app/images/rectangle-3135-VL4.png
+    - assets/learnex-app/images/frame-35477-d2g.png
+    - assets/learnex-app/images/ellipse-809.png
+    - assets/learnex-app/images/address-ic.png
+    - assets/learnex-app/images/rectangle-3153.png
+    - assets/learnex-app/images/ellipse-801.png
+    - assets/learnex-app/images/rectangle-3145.png
+    - assets/learnex-app/images/ellipse-803-bg-iWC.png
+    - assets/learnex-app/images/icquestion-Ycp.png
+    - assets/learnex-app/images/rectangle-3153-5Tn.png
+    - assets/learnex-app/images/vector-wgC.png
+    - assets/learnex-app/images/battery-Sue.png
+    - assets/learnex-app/images/ellipse-808-bg.png
+    - assets/learnex-app/images/auto-group-jkax.png
+    - assets/learnex-app/images/vector-uzx.png
+    - assets/learnex-app/images/logo-1YC.png
+    - assets/learnex-app/images/vector-ATa.png
+    - assets/learnex-app/images/ic-bell-QbJ.png
+    - assets/learnex-app/images/mobile-signal-bEQ.png
+    - assets/learnex-app/images/ellipse-809-jma.png
+    - assets/learnex-app/images/vector-vaL.png
+    - assets/learnex-app/images/vector-4p8.png
+    - assets/learnex-app/images/vector-D6g.png
+    - assets/learnex-app/images/vector-KZa.png
+    - assets/learnex-app/images/ellipse-807.png
+    - assets/learnex-app/images/left-icon-3da.png
+    - assets/learnex-app/images/vector-jmr.png
+    - assets/learnex-app/images/vector-D1S.png
+    - assets/learnex-app/images/ellipse-807-z1E.png
+    - assets/learnex-app/images/mobile-signal-H68.png
+    - assets/learnex-app/images/ellipse-807-Jxp.png
+    - assets/learnex-app/images/welcome-1-bg.png
+    - assets/learnex-app/images/vector-GAk.png
+    - assets/learnex-app/images/left-icon-C4x.png
+    - assets/learnex-app/images/ellipse-809-Hkc.png
+    - assets/learnex-app/images/rectangle-3153-C2t.png
+    - assets/learnex-app/images/ellipse-812.png
+    - assets/learnex-app/images/auto-group-cugf.png
+    - assets/learnex-app/images/wifi-4a4.png
+    - assets/learnex-app/images/vector-NRW.png
+    - assets/learnex-app/images/frame-35477-q5z.png
+    - assets/learnex-app/images/rectangle-3159.png
+    - assets/learnex-app/images/wifi-Net.png
+    - assets/learnex-app/images/battery-ayv.png
+    - assets/learnex-app/images/vector-q2g.png
+    - assets/learnex-app/images/mobile-signal-abA.png
+    - assets/learnex-app/images/battery-EKa.png
+    - assets/learnex-app/images/vector-LYx.png
+    - assets/learnex-app/images/rectangle-3164.png
+    - assets/learnex-app/images/mobile-signal-q5a.png
+    - assets/learnex-app/images/ellipse-812-aor.png
+    - assets/learnex-app/images/wifi-ndN.png
+    - assets/learnex-app/images/battery-a2k.png
+    - assets/learnex-app/images/ellipse-807-n3a.png
+    - assets/learnex-app/images/rectangle-3176.png
+    - assets/learnex-app/images/left-icon-2hN.png
+    - assets/learnex-app/images/mobile-signal-n4p.png
+    - assets/learnex-app/images/wifi-Sac.png
+    - assets/learnex-app/images/battery-R52.png
+    - assets/learnex-app/images/ellipse-807-QNC.png
+    - assets/learnex-app/images/ellipse-807-hon.png
+    - assets/learnex-app/images/rectangle-3172.png
+    - assets/learnex-app/images/battery-9je.png
+    - assets/learnex-app/images/vector-MVa.png
+    - assets/learnex-app/images/ellipse-807-1FE.png
+    - assets/learnex-app/images/ellipse-807-jmA.png
+    - assets/learnex-app/images/mobile-signal-kqn.png
+    - assets/learnex-app/images/vector-8VE.png
+    - assets/learnex-app/images/left-icon-14U.png
+    - assets/learnex-app/images/wifi-VnG.png
+    - assets/learnex-app/images/frame-35477-JDE.png
+    - assets/learnex-app/images/ellipse-807-Esa.png
+    - assets/learnex-app/images/ellipse-809-zuE.png
+    - assets/learnex-app/images/left-icon-6PA.png
+    - assets/learnex-app/images/filter-bqi.png
+    - assets/learnex-app/images/vector-dbv.png
+    - assets/learnex-app/images/starborder-BPW.png
+    - assets/learnex-app/images/add-XAY.png
+    - assets/learnex-app/images/wifi-yRz.png
+    - assets/learnex-app/images/vector-eEk.png
+    - assets/learnex-app/images/icheart-Tz8.png
+    - assets/learnex-app/images/iccomment-UvL.png
+    - assets/learnex-app/images/iccomment-bvQ.png
+    - assets/learnex-app/images/ic-bell-irc.png
+    - assets/learnex-app/images/icquestion-hYc.png
+    - assets/learnex-app/images/battery-MzG.png
+    - assets/learnex-app/images/battery-SjS.png
+    - assets/learnex-app/images/icheart-oM2.png
+    - assets/learnex-app/images/toan-1-Luv.png
+    - assets/learnex-app/images/toan-1-ztY.png
+    - assets/learnex-app/images/frame-35477-FVa.png
+    - assets/learnex-app/images/icquestion-DLt.png
+    - assets/learnex-app/images/left-icon-hYk.png
+    - assets/learnex-app/images/vector-np8.png
+    - assets/learnex-app/images/vector-GsJ.png
+    - assets/learnex-app/images/mobile-signal-RaQ.png
+    - assets/learnex-app/images/rectangle-3185.png
+    - assets/learnex-app/images/vector-1fN.png
+    - assets/learnex-app/images/vector-heY.png
+    - assets/learnex-app/images/wifi-Fap.png
+    - assets/learnex-app/images/avatar-40-bg-p7z.png
+    - assets/learnex-app/images/left-icon-X1J.png
+    - assets/learnex-app/images/vector-QUg.png
+    - assets/learnex-app/images/vector-uuz.png
+    - assets/learnex-app/images/wifi-sXN.png
+    - assets/learnex-app/images/battery-9da.png
+    - assets/learnex-web/images/logo-Sfr.png
+    - assets/learnex-app/images/avatar-40-bg-o6Q.png
+    - assets/learnex-app/images/rectangle-3185-mTn.png
+    - assets/learnex-app/images/mobile-signal-rmN.png
+    - assets/learnex-app/images/icquestion-pCQ.png
+    - assets/learnex-app/images/rectangle-3104-KsE.png
+    - assets/learnex-web/images/rectangle-3140.png
+    - assets/learnex-app/images/frame-35477-5gc.png
+    - assets/learnex-web/images/image-2.png
+    - assets/learnex-web/images/ins-1.png
+    - assets/learnex-web/images/twitter-1.png
+    - assets/learnex-web/images/face-1.png
+    - assets/learnex-web/images/ellipse-2-bg.png
+    - assets/learnex-web/images/ellipse-1-bg.png
+    - assets/learnex-web/images/image-4.png
+    - assets/learnex-web/images/image-1-Vmr.png
+    - assets/learnex-web/images/image-3.png
+    - assets/learnex-web/images/you-1.png
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages
