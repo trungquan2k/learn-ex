@@ -2,26 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:myapp/routing/page_configuration.dart';
 import 'package:myapp/shared/utils/safe_print.dart';
 
-/// Converts browser location strings to [PageConfiguration], and vice-versa.
-/// This leans on [PageConfiguration] to the actual parsing, so this is largely boilerplate.
+
 class AppRouteParser extends RouteInformationParser<PageConfiguration> {
   @override
-  // Take a url bar location, and create an AppLink from it
   Future<PageConfiguration> parseRouteInformation(
       RouteInformation routeInformation) async {
     PageConfiguration link =
         PageConfiguration.fromLocation(routeInformation.location ?? '');
-    safePrint(
+    safePrintForRelease(
         "parseRouteInfo: ${routeInformation.location} == ${link.location}");
     return link;
   }
 
   @override
-  // Convert an applink into a string used for the browser location
   RouteInformation restoreRouteInformation(PageConfiguration appLink) {
     // Ask the applink to give us a string
     String location = appLink.location;
-    safePrint("restoreRouteInfo: $location");
+    safePrintForRelease("restoreRouteInfo: $location");
 
     // Pass that string back to the OS so it can update the url bar
     return RouteInformation(location: location);

@@ -1,12 +1,12 @@
 import 'package:myapp/routing/page_configuration/authen_page_configuration.dart';
 import 'package:myapp/routing/page_configuration/dashboard_page_configuration.dart';
 
-const String LoginPagePath = '/login-page';
-const String DashBoardPath = '/dash-board';
+const String loginPagePath = '/login-page';
+const String dashBoardPath = '/dash-board';
 
 enum Pages {
-  LoginPage,
-  DashBoard,
+  loginPage,
+  dashBoard,
 }
 
 abstract class PageConfiguration {
@@ -36,7 +36,7 @@ abstract class PageConfiguration {
     print(pathSegments);
 
     switch (path) {
-      case LoginPagePath:
+      case loginPagePath:
         return LoginPageConfiguration.fromLocation(location);
       default:
         return DashBoardPageConfiguration.fromLocation(location);

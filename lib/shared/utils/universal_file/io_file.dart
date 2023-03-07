@@ -27,10 +27,10 @@ class IoFileWriter implements UniversalFile {
   @override
   Future<String> read() async {
     await getDataPath();
-    print("Loading file @ $fullPath");
-    if (await File("$fullPath").exists()) {
-      return await File("$fullPath").readAsString().catchError((Object e) {
-        safePrint(e.toString());
+    print('Loading file @ $fullPath');
+    if (await File(fullPath).exists()) {
+      return await File(fullPath).readAsString().catchError((Object e) {
+        safePrintForRelease(e.toString());
       });
     }
     return '';

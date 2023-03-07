@@ -129,7 +129,7 @@ class MainAppState extends AbstractModel {
   Rect get windowRect => _windowRect;
 
   set windowRect(Rect value) {
-    print("Set windowRect $value");
+    print('Set windowRect $value');
     notify(() => _windowRect = value);
   }
 
@@ -142,14 +142,14 @@ class MainAppState extends AbstractModel {
   }
 
   void save() {
-    print("Saving: $kFileName");
+    print('Saving: $kFileName');
     String saveJson = jsonEncode(toJson());
     UniversalFile(kFileName).write(saveJson);
   }
 
   load() async {
     SPref.instance.set(AppKey.idToken,
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiTUVNQkVSIiwiX2lkIjoiNjI4YzQzMzliYmYwZDUwMDFkNDgxMGY5IiwidXNlcm5hbWUiOiJnYXN0aGllbmhhQGdtYWlsLmNvbSIsImNyZWF0ZWRBdCI6IjIwMjItMDctMjBUMDc6NDY6NTAuMTQ5WiIsImlhdCI6MTY1ODMwMzIxMCwiZXhwIjoxNjYwODk1MjEwfQ.arYy15J0UyAXodkZ-iRsf3vgScgxtkK24x_iBY9qhgU");
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiTUVNQkVSIiwiX2lkIjoiNjI4YzQzMzliYmYwZDUwMDFkNDgxMGY5IiwidXNlcm5hbWUiOiJnYXN0aGllbmhhQGdtYWlsLmNvbSIsImNyZWF0ZWRBdCI6IjIwMjItMDctMjBUMDc6NDY6NTAuMTQ5WiIsImlhdCI6MTY1ODMwMzIxMCwiZXhwIjoxNjYwODk1MjEwfQ.arYy15J0UyAXodkZ-iRsf3vgScgxtkK24x_iBY9qhgU');
     userRepository.memberGetMe();
     userRepository.getIsCurrentUser();
     _currentUser = userRepository.currentUser;
@@ -161,31 +161,31 @@ class MainAppState extends AbstractModel {
     try {
       fromJson(jsonDecode(saveJson) as Map<String, dynamic>);
     } catch (e) {
-      safePrint("Failed to load save file");
+      safePrintForRelease('Failed to load save file');
     }
-    print("File loaded, $windowRect");
+    print('File loaded, $windowRect');
   }
 
   void fromJson(Map<String, dynamic> json) {
-    if (json["enableTouchMode"] != null) {
-      _enableTouchMode = json["enableTouchMode"] as bool;
+    if (json['enableTouchMode'] != null) {
+      _enableTouchMode = json['enableTouchMode'] as bool;
     }
     _windowRect = Rect.fromLTWH(
-      json["winX"] as double? ?? 0.0,
-      json["winY"] as double? ?? 0.0,
-      json["winWidth"] as double? ?? 0.0,
-      json["winHeight"] as double? ?? 0.0,
+      json['winX'] as double? ?? 0.0,
+      json['winY'] as double? ?? 0.0,
+      json['winWidth'] as double? ?? 0.0,
+      json['winHeight'] as double? ?? 0.0,
     );
     //print(json);
   }
 
   Map<String, dynamic> toJson() {
     return <String, dynamic>{
-      "winX": _windowRect.left,
-      "winY": _windowRect.top,
-      "winWidth": _windowRect.width,
-      "winHeight": _windowRect.height,
-      "enableTouchMode": enableTouchMode,
+      'winX': _windowRect.left,
+      'winY': _windowRect.top,
+      'winWidth': _windowRect.width,
+      'winHeight': _windowRect.height,
+      'enableTouchMode': enableTouchMode,
     };
   }
 }

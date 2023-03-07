@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:myapp/model/main_app_model.dart';
+import 'package:myapp/model/main_app_state.dart';
 import 'package:myapp/shared/utils/device_info.dart';
 import 'package:myapp/shared/utils/safe_print.dart';
 import 'package:myapp/shared/utils/time_utils.dart';
@@ -17,10 +17,10 @@ class BootstrapCommand extends Commands.BaseAppCommand {
     if (Commands.mainContext == null) {
       Commands.setContext(context);
     }
-    safePrint('Bootstrap Started, v${MainAppState.kVersion}');
+    safePrintForRelease('Bootstrap Started, v${MainAppState.kVersion}');
     // Load AppModel ASAP
     await mainAppState.load();
-    // safePrint(
+    // safePrintForRelease(
     //     "BootstrapCommand - AppModel Loaded, user = ${mainAppState.currentUser}");
     // Set the cacheSize so we'll use more RAM on desktop and higher spec devices.
     _configureMemoryCache();
@@ -35,7 +35,7 @@ class BootstrapCommand extends Commands.BaseAppCommand {
       }
     }
     mainAppState.hasBootstrapped = true;
-    safePrint('BootstrapCommand - Complete');
+    safePrintForRelease('BootstrapCommand - Complete');
   }
 
   void _configureMemoryCache() {
@@ -47,7 +47,7 @@ class BootstrapCommand extends Commands.BaseAppCommand {
         cacheSize =
             max(cacheSize, (SysInfo.getTotalPhysicalMemory() / 4).round());
       } on Exception catch (e) {
-        safePrint(e.toString());
+        safePrintForRelease(e.toString());
       }
     }
     imageCache.maximumSizeBytes = cacheSize;

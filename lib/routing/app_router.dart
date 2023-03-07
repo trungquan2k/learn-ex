@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:myapp/feature/authentication/login/login_page/login_page.dart';
 import 'package:myapp/feature/dashboard/dashboard_page.dart';
 import 'package:myapp/feature/flash/flash.dart';
-import 'package:myapp/model/main_app_model.dart';
+import 'package:myapp/model/main_app_state.dart';
 import 'package:myapp/routing/page_configuration.dart';
 import 'package:myapp/routing/page_configuration/authen_page_configuration.dart';
 import 'package:myapp/shared/utils/safe_print.dart';
@@ -30,7 +30,7 @@ class AppRouterDelegate extends RouterDelegate<PageConfiguration>
 
   // Return a navigator, configured to match the current app state
   Widget build(BuildContext context) {
-    safePrint("RouterDelegate.build()");
+    safePrintForRelease("RouterDelegate.build()");
     // Bind to the app state we care about
     bool hasBootstrapped = mainAppState.hasBootstrapped;
     bool hasSetInitialRoute = mainAppState.hasSetInitialRoute;
@@ -94,7 +94,7 @@ class AppRouterDelegate extends RouterDelegate<PageConfiguration>
     }
     await setNewRoutePath(initialLink);
     mainAppState.hasSetInitialRoute = true;
-    if (kDebugMode) safePrint("setInitialRoutePath complete");
+    if (kDebugMode) safePrintForRelease("setInitialRoutePath complete");
   }
 
   @override

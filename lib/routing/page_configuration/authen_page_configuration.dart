@@ -3,7 +3,7 @@ import 'package:myapp/routing/page_configuration.dart';
 class LoginPageConfiguration extends PageConfiguration {
   String? id;
   LoginPageConfiguration({this.id})
-      : super(key: 'LoginPage', path: LoginPagePath, uiPage: Pages.LoginPage);
+      : super(key: 'LoginPage', path: loginPagePath, uiPage: Pages.loginPage);
 
   factory LoginPageConfiguration.fromLocation(String location) {
     final uri = Uri.parse(location);

@@ -3,7 +3,7 @@ import 'dart:developer';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:myapp/exported_packages.dart';
-import 'package:myapp/model/main_app_model.dart';
+import 'package:myapp/model/main_app_state.dart';
 import 'package:myapp/shared/poppover/popover_controller.dart';
 import 'package:myapp/commands/base_command.dart' as Commands;
 import 'package:flutter/foundation.dart';

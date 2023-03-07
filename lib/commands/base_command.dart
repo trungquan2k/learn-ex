@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:myapp/constants/styles.dart';
-import 'package:myapp/model/main_app_model.dart';
+import 'package:myapp/model/main_app_state.dart';
 import 'package:myapp/themes.dart';
 import 'package:provider/provider.dart';
 
