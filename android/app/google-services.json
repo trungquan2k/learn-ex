@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "514169416530",
+    "project_id": "learnex-application-6e09b",
+    "storage_bucket": "learnex-application-6e09b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:514169416530:android:a065ccf20ecfd0e745e88b",
+        "android_client_info": {
+          "package_name": "com.learnex"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "514169416530-rl8g76spfdh8fs4vkqf413d08f75m29v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1mcPBceAm3aQ_Ebox6fJJwOXw2jlGZvQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "514169416530-rl8g76spfdh8fs4vkqf413d08f75m29v.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "514169416530-38egf0ie922jrbdu8pp11q7hmqosicns.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "learn-ex"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

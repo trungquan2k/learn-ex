@@ -13,7 +13,7 @@ class _FlashState extends State<FlashScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
-        child: Assets.images.imageHomeLogo
+        child: Assets.images.logo
             .image(width: size.width * 0.8, fit: BoxFit.cover),
       ),
     );

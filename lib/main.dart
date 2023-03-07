@@ -4,6 +4,7 @@ import 'package:awesome_notifications/awesome_notifications.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:myapp/commands/bootstrap_command.dart';
 import 'package:myapp/config/application.dart';
 import 'package:myapp/constants/colors.dart';
 import 'package:myapp/feature/authentication/login/login_page.dart';
@@ -15,7 +16,7 @@ import 'package:myapp/shared/mixins/spref.dart';
 import 'package:myapp/themes.dart';
 import 'package:myapp/utils.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:myapp/learnex-app/login-screen.dart';
+// import 'package:myapp/learnex-app/login-screen.dart';
 import 'package:provider/provider.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 // import 'package:myapp/learnex-app/register-screen.dart';
@@ -115,7 +116,7 @@ void main() async {
     appRunner: () => runApp(
       MultiProvider(
         providers: [
-          // Provider.value(value: application.userRepository),
+          Provider.value(value: application.userRepository),
           // Provider.value(value: application.reportRepository),
           // Provider.value(value: application.authRepository),
           // Provider.value(value: application.categoryRepository),
@@ -128,24 +129,24 @@ void main() async {
   );
 }
 
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter',
-      debugShowCheckedModeBanner: false,
-      scrollBehavior: MyCustomScrollBehavior(),
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
-        body: SingleChildScrollView(
-          child: LoginPage(),
-        ),
-      ),
-    );
-  }
-}
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'Flutter',
+//       debugShowCheckedModeBanner: false,
+//       scrollBehavior: MyCustomScrollBehavior(),
+//       theme: ThemeData(
+//         primarySwatch: Colors.blue,
+//       ),
+//       home: Scaffold(
+//         body: SingleChildScrollView(
+//           child: LoginPage(),
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 class _AppBootstrapper extends StatefulWidget {
   @override
@@ -161,7 +162,7 @@ class _AppBootstrapperState extends State<_AppBootstrapper> {
     router = AppRouterDelegate(context.read<MainAppState>());
 
     scheduleMicrotask(() {
-      // BootstrapCommand().run(context);
+      BootstrapCommand().run(context);
     });
     super.initState();
   }

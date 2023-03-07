@@ -33,8 +33,7 @@ class WidgetImageNetWork extends StatelessWidget {
           width: width,
           placeholder: (context, url) => SizedBox(
               height: height, width: width, child: Center(child: spinKit)),
-          errorWidget: (context, url, error) =>
-              Assets.images.imageHomeLogo.image(
+          errorWidget: (context, url, error) => Assets.images.logo.image(
             height: height,
             width: width,
             fit: fit ?? BoxFit.cover,
@@ -46,7 +45,7 @@ class WidgetImageNetWork extends StatelessWidget {
         onTap: () {
           onTap?.call();
         },
-        child: Assets.images.imageHomeLogo.image(
+        child: Assets.images.logo.image(
           height: height,
           width: width,
           fit: BoxFit.contain,

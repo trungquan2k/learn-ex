@@ -62,14 +62,14 @@ class AppBarComponent extends StatelessWidget with PreferredSizeWidget {
           ),
           Row(
             children: [
-              GestureDetector(
-                onTap: () {},
-                child: Assets.icons.iconNotification.image(
-                  width: 20.5,
-                  height: 20.5,
-                  fit: BoxFit.contain,
-                ),
-              ),
+              // GestureDetector(
+              //   onTap: () {},
+              //   child: Assets.icons.iconNotification.image(
+              //     width: 20.5,
+              //     height: 20.5,
+              //     fit: BoxFit.contain,
+              //   ),
+              // ),
               const SizedBox(
                 width: 22,
               ),

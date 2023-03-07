@@ -4,8 +4,6 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
-	<key>CFBundleDisplayName</key>
-	<string>Test</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -13,7 +11,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>test</string>
+	<string>Test</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -28,6 +26,18 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Main</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Learn Ex cần sử dụng lịch.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Learn Ex sử dụng camera để chụp hình ảnh đại diện, hình ảnh công việc, dịch hại.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Hãy bật vị trí để có thể quản lý đơn hàng của bạn.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Hãy bật vị trí để có thể quản lý đơn hàng của bạn.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Learn Ex cần sử dụng thư viện ảnh để chọn hình ảnh đại diện, hình ảnh công việc, dịch hại.</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Learn Ex cần sử dụng micro.</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
