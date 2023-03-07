@@ -3,7 +3,6 @@ import 'package:myapp/config/dashboard_config.dart';
 import 'package:myapp/constants/colors.dart';
 import 'package:myapp/feature/dashboard/widgets/appbar_view.dart';
 import 'package:myapp/feature/dashboard/widgets/menu_bottom_component.dart';
-import 'package:myapp/shared/widgets/widget_circle_avatar.dart';
 import 'package:myapp/utils.dart';
 
 class DashboardPage extends StatelessWidget {
@@ -12,10 +11,8 @@ class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var theme = Theme.of(context);
-    var _mediaQueryData = MediaQuery.of(context);
-    double baseWidth = 375;
-    double fem = MediaQuery.of(context).size.width / baseWidth;
-    double ffem = fem * 0.97;
+    var mediaQueryData = MediaQuery.of(context);
+
     return Scaffold(
       backgroundColor: AppColors.white,
       body: Stack(
@@ -24,129 +21,15 @@ class DashboardPage extends StatelessWidget {
             alignment: Alignment.topCenter,
             child: Column(
               children: [
-                // AppBarDashBoardView(
-                //   theme: theme,
-                //   mediaQueryData: _mediaQueryData,
-                // ),
-                Container(
-                  width: double.infinity,
-                  height: 110 * fem,
-                  decoration: BoxDecoration(
-                    color: Color(0xfff77737),
-                    borderRadius: BorderRadius.only(
-                      bottomRight: Radius.circular(12 * fem),
-                      bottomLeft: Radius.circular(12 * fem),
-                    ),
-                  ),
-                  child: Stack(
-                    children: [
-                      Positioned(
-                        left: 272 * fem,
-                        top: 48.1591796875 * fem,
-                        child: Container(
-                          width: 27 * fem,
-                          height: 27.68 * fem,
-                          child: Stack(
-                            children: [
-                              Positioned(
-                                // icbell39z (140:1141)
-                                left: 2.578704834 * fem,
-                                top: 9.0986328125 * fem,
-                                child: Align(
-                                  child: SizedBox(
-                                    width: 14.84 * fem,
-                                    height: 16.66 * fem,
-                                    child: Image.asset(
-                                      'assets/learnex-app/images/ic-bell-QbJ.png',
-                                      width: 14.84 * fem,
-                                      height: 16.66 * fem,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Positioned(
-                                // group35161GYY (140:1142)
-                                left: 9 * fem,
-                                top: 0 * fem,
-                                child: Container(
-                                  width: 18 * fem,
-                                  height: 18.45 * fem,
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      fit: BoxFit.cover,
-                                      image: AssetImage(
-                                        'assets/learnex-app/images/ellipse-801.png',
-                                      ),
-                                    ),
-                                  ),
-                                  child: Center(
-                                    child: Text(
-                                      '5',
-                                      style: SafeGoogleFont(
-                                        'Mulish',
-                                        fontSize: 8 * ffem,
-                                        fontWeight: FontWeight.w700,
-                                        height: 1 * ffem / fem,
-                                        color: Color(0xffffffff),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        // logom7v (220:1046)
-                        left: 1 * fem,
-                        top: 34 * fem,
-                        child: WidgetCircleAvatar(
-                          url: "assets/learnex-app/images/logo-1YC.png",
-                          onTap: () {},
-                          width: 40,
-                          height: 40,
-                        ),
-                        // child: Align(
-                        //   child: SizedBox(
-                        //     width: 149 * fem,
-                        //     height: 51 * fem,
-                        //     child: Image.asset(
-                        //       'assets/learnex-app/images/logo-1YC.png',
-                        //       fit: BoxFit.cover,
-                        //     ),
-                        //   ),
-                        // ),
-                      ),
-                      Positioned(
-                        // ellipse803RCU (220:1047)
-                        left: 311 * fem,
-                        top: 41 * fem,
-                        child: Align(
-                          child: SizedBox(
-                            width: 44 * fem,
-                            height: 44 * fem,
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(22 * fem),
-                                image: DecorationImage(
-                                  fit: BoxFit.cover,
-                                  image: AssetImage(
-                                    'assets/learnex-app/images/ellipse-803-bg-iWC.png',
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                AppBarDashBoardView(
+                  theme: theme,
+                  mediaQueryData: mediaQueryData,
                 ),
                 Expanded(
                   child: RefreshIndicator(
                     onRefresh: () async {},
-                    child: SingleChildScrollView(child: Text("Dashboard test")),
+                    child: const SingleChildScrollView(
+                        child: Text('Dashboard test')),
                   ),
                 ),
               ],

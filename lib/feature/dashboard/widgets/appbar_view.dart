@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/commands/set_current_user_command.dart';
+import 'package:myapp/constants/assets.gen.dart';
 import 'package:myapp/constants/colors.dart';
 import 'package:myapp/constants/style_constant.dart';
 import 'package:myapp/shared/widgets/widget_circle_avatar.dart';
@@ -18,8 +19,17 @@ class AppBarDashBoardView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // double baseWidth = 375;
+    // double fem = MediaQuery.of(context).size.width / baseWidth;
+    // double ffem = fem * 0.97;
     return Container(
       color: AppColors.primaryColor,
+      // decoration: const BoxDecoration(
+      //   borderRadius: BorderRadius.only(
+      //     bottomRight: Radius.circular(12),
+      //     bottomLeft: Radius.circular(12),
+      //   ),
+      // ),
       padding: EdgeInsets.only(
         bottom: 16,
         right: 20,
@@ -29,48 +39,24 @@ class AppBarDashBoardView extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          // Assets.images.imageHomeLogo.image(
-          //   width: 150,
-          //   height: 40,
-          //   fit: BoxFit.cover,
-          // ),
+          Assets.images.logo.image(
+            width: 150,
+            height: 40,
+            fit: BoxFit.cover,
+          ),
           Row(
             children: [
-              Stack(
-                children: [
-                  Positioned(
-                    top: 0,
-                    right: 0,
-                    child: Container(
-                      width: 20,
-                      height: 20,
-                      padding: const EdgeInsets.all(2),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.red),
-                      child: Center(
-                        child: FittedBox(
-                          child: Text(
-                            "${3}",
-                            style: StyleConst.boldStyle(color: Colors.white),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
               const SizedBox(
                 width: 10,
               ),
-              // GestureDetector(
-              //   onTap: () {},
-              //   child: Assets.icons.iconNotificationActive.image(
-              //     width: 20.5,
-              //     height: 20.5,
-              //     fit: BoxFit.contain,
-              //   ),
-              // ),
+              GestureDetector(
+                onTap: () {},
+                child: Assets.images.icBell.image(
+                  width: 20.5,
+                  height: 20.5,
+                  fit: BoxFit.contain,
+                ),
+              ),
               const SizedBox(
                 width: 22,
               ),

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myapp/constants/app_color.dart';
 
@@ -8,11 +7,11 @@ import 'package:myapp/constants/app_color.dart';
 
 /// Used for all animations in the  app
 class Times {
-  static const Duration fastest = const Duration(milliseconds: 150);
-  static const fast = const Duration(milliseconds: 250);
-  static const medium = const Duration(milliseconds: 350);
-  static const slow = const Duration(milliseconds: 700);
-  static const slower = const Duration(milliseconds: 1000);
+  static const Duration fastest = Duration(milliseconds: 150);
+  static const fast = Duration(milliseconds: 250);
+  static const medium = Duration(milliseconds: 350);
+  static const slow = Duration(milliseconds: 700);
+  static const slower = Duration(milliseconds: 1000);
 }
 
 class Sizes {
@@ -41,7 +40,7 @@ class Insets {
 }
 
 OutlineInputBorder kOutlineInputBorder = OutlineInputBorder(
-  borderSide: BorderSide(
+  borderSide: const BorderSide(
       width: 1, style: BorderStyle.solid, color: AppColors.borderInputColor),
   borderRadius: BorderRadius.circular(10),
   gapPadding: 10,
@@ -60,22 +59,22 @@ InputDecoration kDefaultInputDecoration = InputDecoration(
     focusedErrorBorder: kOutlineInputBorder.copyWith(
         borderSide: const BorderSide(color: Colors.red)),
     focusedBorder: kOutlineInputBorder.copyWith(
-        borderSide: BorderSide(color: AppColors.primaryColor)),
+        borderSide: const BorderSide(color: AppColors.primaryColor)),
     filled: true,
     labelStyle: const TextStyle(height: -1));
 
 class Corners {
   static const double sm = 3;
-  static const BorderRadius smBorder = const BorderRadius.all(smRadius);
-  static const Radius smRadius = const Radius.circular(sm);
+  static const BorderRadius smBorder = BorderRadius.all(smRadius);
+  static const Radius smRadius = Radius.circular(sm);
 
   static const double med = 5;
-  static const BorderRadius medBorder = const BorderRadius.all(medRadius);
-  static const Radius medRadius = const Radius.circular(med);
+  static const BorderRadius medBorder = BorderRadius.all(medRadius);
+  static const Radius medRadius = Radius.circular(med);
 
   static const double lg = 8;
-  static const BorderRadius lgBorder = const BorderRadius.all(lgRadius);
-  static const Radius lgRadius = const Radius.circular(lg);
+  static const BorderRadius lgBorder = BorderRadius.all(lgRadius);
+  static const Radius lgRadius = Radius.circular(lg);
 }
 
 class Strokes {

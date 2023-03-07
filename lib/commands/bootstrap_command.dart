@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:myapp/exported_packages.dart';
 import 'package:myapp/model/main_app_model.dart';
 import 'package:myapp/shared/utils/device_info.dart';
 import 'package:myapp/shared/utils/safe_print.dart';
@@ -18,7 +17,7 @@ class BootstrapCommand extends Commands.BaseAppCommand {
     if (Commands.mainContext == null) {
       Commands.setContext(context);
     }
-    safePrint("Bootstrap Started, v${MainAppState.kVersion}");
+    safePrint('Bootstrap Started, v${MainAppState.kVersion}');
     // Load AppModel ASAP
     await mainAppState.load();
     // safePrint(
@@ -36,7 +35,7 @@ class BootstrapCommand extends Commands.BaseAppCommand {
       }
     }
     mainAppState.hasBootstrapped = true;
-    safePrint("BootstrapCommand - Complete");
+    safePrint('BootstrapCommand - Complete');
   }
 
   void _configureMemoryCache() {

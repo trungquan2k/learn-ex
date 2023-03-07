@@ -7,7 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:myapp/commands/bootstrap_command.dart';
 import 'package:myapp/config/application.dart';
 import 'package:myapp/constants/colors.dart';
-import 'package:myapp/feature/authentication/login/login_page.dart';
+import 'package:myapp/feature/authentication/login/login_page/login_page.dart';
 import 'package:myapp/localizations/app_localizations.dart';
 import 'package:myapp/model/main_app_model.dart';
 import 'package:myapp/routing/app_route_parser.dart';

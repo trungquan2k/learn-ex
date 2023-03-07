@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:myapp/constants/assets.gen.dart';
 
 class FlashScreen extends StatefulWidget {
+  const FlashScreen({super.key});
+
   @override
-  _FlashState createState() => _FlashState();
+  State<FlashScreen> createState() => _FlashState();
 }
 
 class _FlashState extends State<FlashScreen> {

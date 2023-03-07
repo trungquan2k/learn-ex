@@ -8,10 +8,10 @@ class SetCurrentUserCommand extends BaseAppCommand {
   Future<void> run(UserModel? userModel) async {
     mainAppState.currentUser = userModel;
     print(
-        "setted user_________________" + jsonEncode(mainAppState.currentUser));
+        'setted user_________________${jsonEncode(mainAppState.currentUser)}');
   }
 
   UserModel? getCurrentUser() {
-    return mainAppState.currentUser ?? UserModel();
+    return mainAppState.currentUser ?? const UserModel();
   }
 }

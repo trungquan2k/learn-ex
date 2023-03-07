@@ -21,7 +21,7 @@ class MainAppScaffold extends StatefulWidget {
   final bool useSafeArea;
 
   @override
-  _MainAppScaffoldState createState() => _MainAppScaffoldState();
+  State<MainAppScaffold> createState() => _MainAppScaffoldState();
 }
 
 class _MainAppScaffoldState extends State<MainAppScaffold> {
@@ -91,9 +91,6 @@ class _MainAppScaffoldState extends State<MainAppScaffold> {
           textDirection: textDirection,
           // Right-click support
           child: Navigator(
-            observers: [
-              // SentryNavigatorObserver(),
-            ],
             onPopPage: (Route route, result) {
               if (route.didPop(result)) return true;
               return false;

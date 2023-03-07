@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:myapp/feature/authentication/login/login_page.dart';
+import 'package:myapp/feature/authentication/login/login_page/login_page.dart';
 import 'package:myapp/feature/dashboard/dashboard_page.dart';
 import 'package:myapp/feature/flash/flash.dart';
 import 'package:myapp/model/main_app_model.dart';

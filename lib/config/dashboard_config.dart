@@ -54,9 +54,7 @@
 // );
 
 import 'package:flutter/material.dart';
-import 'package:myapp/constants/assets.gen.dart';
 import 'package:myapp/constants/colors.dart';
-import 'package:myapp/data/model/form_combo_box/form_combo_box.dart';
 import 'package:myapp/feature/dashboard/widgets/menu_bottom_component.dart';
 
 double width = 30;
@@ -64,25 +62,25 @@ double height = 30;
 
 List<MenuBottomModel> listMenuBottom = [
   MenuBottomModel(
-      title: "Home page",
-      icon: Icon(Icons.home, color: AppColors.primaryColor, size: 22),
+      title: 'Home page',
+      icon: const Icon(Icons.home, color: AppColors.primaryColor, size: 22),
       color: AppColors.primaryColor,
       onTap: () {}),
   MenuBottomModel(
-      title: "Book Sell",
-      icon: Icon(Icons.book, color: AppColors.primaryColor, size: 22),
+      title: 'Book Sell',
+      icon: const Icon(Icons.book, color: AppColors.primaryColor, size: 22),
       color: AppColors.grey,
       onTap: () {}),
   MenuBottomModel(
-      title: "Questions",
-      icon:
-          Icon(Icons.question_answer, color: AppColors.primaryColor, size: 22),
+      title: 'Questions',
+      icon: const Icon(Icons.question_answer,
+          color: AppColors.primaryColor, size: 22),
       color: AppColors.grey,
       onTap: () {}),
   MenuBottomModel(
-      title: "Accounts",
-      icon:
-          Icon(Icons.account_balance, color: AppColors.primaryColor, size: 22),
+      title: 'Accounts',
+      icon: const Icon(Icons.account_balance,
+          color: AppColors.primaryColor, size: 22),
       color: AppColors.grey,
       onTap: () {})
 ];

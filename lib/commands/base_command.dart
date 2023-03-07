@@ -22,7 +22,7 @@ class BaseAppCommand {
   /// Provide quick lookups for the main Models and Services in the App.
   T getProvided<T>() {
     assert(_mainContext != null,
-        "You must call AbstractCommand.init(BuildContext) method before calling Commands.");
+        'You must call AbstractCommand.init(BuildContext) method before calling Commands.');
     return _mainContext!.read<T>();
   }
 
@@ -34,7 +34,7 @@ class BaseAppCommand {
         TextStyles.caption.copyWith(color: mainAppState.theme.inverseTextColor);
     if (allowQueue == false) _fToast?.removeQueuedCustomToasts();
     _fToast?.showToast(
-      toastDuration: Duration(milliseconds: 1500),
+      toastDuration: const Duration(milliseconds: 1500),
       gravity: ToastGravity.TOP,
       child: Container(
           padding: EdgeInsets.only(top: Insets.offset),
